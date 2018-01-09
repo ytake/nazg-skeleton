@@ -4,10 +4,10 @@ Nazg is a HHVM/Hack Microframework that helps you quickly write simple yet power
 Begin developing HHVM/Hack Http Microframework Skeleton!
 
 [![Build Status](https://travis-ci.org/ytake/nazg-framework.svg?branch=master)](https://travis-ci.org/ytake/nazg-framework)
-[![Packagist](https://img.shields.io/packagist/dt/nazg/skeleton.svg)]()
-[![Packagist](https://img.shields.io/packagist/l/nazg/skeleton.svg)]()
-[![Packagist Pre Release](https://img.shields.io/packagist/vpre/nazg/skeleton.svg)]()
-[![Packagist](https://img.shields.io/packagist/v/nazg/skeleton.svg)]()
+[![Packagist](https://img.shields.io/packagist/dt/nazg/skeleton.svg)](https://packagist.org/packages/nazg/skeleton)
+[![Packagist](https://img.shields.io/packagist/l/nazg/skeleton.svg)](https://packagist.org/packages/nazg/skeleton)
+[![Packagist Pre Release](https://img.shields.io/packagist/vpre/nazg/skeleton.svg)](https://packagist.org/packages/nazg/skeleton)
+[![Packagist](https://img.shields.io/packagist/v/nazg/skeleton.svg)](https://packagist.org/packages/nazg/skeleton)
 
 ## Acout Nazg
 
