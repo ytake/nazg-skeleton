@@ -1,13 +1,15 @@
 {
   "name": "nazg/skeleton",
-  "description": "Http Microframework for Hack",
+  "description": "Http Microframework for HHVM/Hack",
+  "type": "project",
   "keywords": [
     "hhvm",
     "hack",
     "psr",
     "psr-7",
     "psr-11",
-    "psr-15"
+    "psr-15",
+    "framework"
   ],
   "license": "BSD-3-Clause",
   "authors": [
@@ -18,9 +20,9 @@
   ],
   "require": {
     "php": ">=7.0",
-    "hhvm": ">=3.20.0",
+    "hhvm": ">=3.23",
     "hhvm/hhvm-autoload": "^1.5",
-    "nazg/framework": "0.1.0-alpha1",
+    "nazg/framework": "0.1.0-alpha2",
     "facebook/xhp-lib": "~2.2",
     "zendframework/zend-diactoros": "^1.6.1"
   },
@@ -38,5 +40,16 @@
       "tests/"
     ]
   },
-  "minimum-stability": "stable"
+  "minimum-stability": "stable",
+  "extra": {
+    "branch-alias": {
+        "dev-master": "1.x-dev"
+    }
+  },
+  "config": {
+    "preferred-install": {
+        "*": "dist"
+    },
+    "sort-packages": true
+  }
 }

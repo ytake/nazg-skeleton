@@ -9,10 +9,13 @@ use Interop\Http\Server\MiddlewareInterface;
 use Interop\Http\Server\RequestHandlerInterface;
 
 final class IndexAction implements MiddlewareInterface {
+
+  public function __construct(private IndexResponder $responder) {}
+
   public function process(
     ServerRequestInterface $request,
     RequestHandlerInterface $handler,
   ): ResponseInterface {
-    return (new IndexResponder())->response();
+    return $this->responder->response();
   }
 }
