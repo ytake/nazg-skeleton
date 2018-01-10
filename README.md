@@ -9,7 +9,7 @@ Begin developing HHVM/Hack Http Microframework Skeleton!
 [![Packagist Pre Release](https://img.shields.io/packagist/vpre/nazg/skeleton.svg)](https://packagist.org/packages/nazg/skeleton)
 [![Packagist](https://img.shields.io/packagist/v/nazg/skeleton.svg)](https://packagist.org/packages/nazg/skeleton)
 
-## Acout Nazg
+## About Nazg
 
  - [Fast Routing For Hack](https://github.com/hhvm/hack-router)
  - [Simple Dependency Injection Container For Hack](https://github.com/ytake/hh-container)
