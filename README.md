@@ -15,6 +15,16 @@ Begin developing HHVM/Hack Http Microframework Skeleton!
  - [Simple Dependency Injection Container For Hack](https://github.com/ytake/hh-container)
  - [PSR-7/PSR-15 Compliant Middleware Component](https://github.com/ytake/heredity)
 
+## Vagrant
+
+[Gardening-HHVM Vagrant Box](https://app.vagrantup.com/ytake/boxes/gardening-hhvm)
+
+```bash
+$ vagrant box add ytake/gardening-hhvm
+```
+
+see https://github.com/ytake/gardening-hhvm#install-gardening-box
+
 ## Create Project
 
 ```bash
