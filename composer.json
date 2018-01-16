@@ -22,7 +22,7 @@
     "php": ">=7.0",
     "hhvm": ">=3.23",
     "hhvm/hhvm-autoload": "^1.5",
-    "nazg/framework": "0.1.0-alpha2",
+    "nazg/framework": "^0.1.0",
     "facebook/xhp-lib": "~2.2",
     "zendframework/zend-diactoros": "^1.6.1"
   },
@@ -44,12 +44,12 @@
   "minimum-stability": "stable",
   "extra": {
     "branch-alias": {
-        "dev-master": "1.x-dev"
+      "dev-master": "1.x-dev"
     }
   },
   "config": {
     "preferred-install": {
-        "*": "dist"
+      "*": "dist"
     },
     "sort-packages": true
   }

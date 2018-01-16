@@ -1,4 +1,4 @@
-<?hh
+<?hh // strict
 
 /**
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
@@ -14,24 +14,18 @@
  *
  * Copyright (c) 2017-2018 Yuuki Takezawa
  */
-use Nazg\Foundation\Application;
-use Ytake\HHConfigAggreagator\ArrayProvider;
-use Ytake\HHConfigAggreagator\ConfigAggreagator;
-use Ytake\HHConfigAggreagator\PhpFileProvider;
-use Zend\Diactoros\ServerRequestFactory;
+final class :div:index extends :x:element {
+  attribute :div;
 
-require __DIR__.'/../vendor/hh_autoload.php';
-call_user_func(
-  function() {
-    $aggregator = new ConfigAggreagator(
-      [
-        new PhpFileProvider(
-          __DIR__.'/../config/{{,*.}global,{,*.}local}.{hh,php}',
-        ),
-      ],
+  use XHPHelpers;
+
+  protected function render(): XHPRoot {
+    $id = $this->getID();
+    return (
+            <div id={$id}>
+              <h1>Nazg</h1>
+              Begin developing HHVM/Hack Http Application / {phpversion()}
+            </div>
     );
-    $app = new Application(new \Nazg\Foundation\Dependency\Dependency());
-    $app->setApplicationConfig($aggregator->getMergedConfig());
-    $app->run(ServerRequestFactory::fromGlobals());
-  },
-);
+  }
+}
