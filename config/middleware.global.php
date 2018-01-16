@@ -1,9 +1,7 @@
 <?hh 
 
-use Nazg\Foundation\Service;
-
 return [
-  Service::MIDDLEWARES => [
+  \Nazg\Foundation\Service::MIDDLEWARES => [
 
   ],
 ];

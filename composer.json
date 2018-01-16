@@ -28,7 +28,8 @@
   },
   "require-dev": {
     "phpunit/phpunit": "^6.0",
-    "91carriage/phpunit-hhi": "^6.2.0"
+    "91carriage/phpunit-hhi": "^6.2.0",
+    "ytake/gardening-hhvm": "^0.1.0"
   },
   "autoload": {
     "psr-4": {

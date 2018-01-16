@@ -1,11 +1,8 @@
-<?hh 
-
-use Nazg\Foundation\Service;
-use Nazg\Routing\HttpMethod;
+<?hh
 
 return [
-  Service::ROUTES => ImmMap{
-    HttpMethod::GET => ImmMap {
+  \Nazg\Foundation\Service::ROUTES => ImmMap{
+    \Nazg\Http\HttpMethod::GET => ImmMap {
       '/' => App\Action\IndexAction::class,
     },
   }

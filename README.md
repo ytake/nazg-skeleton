@@ -19,7 +19,7 @@ Begin developing HHVM/Hack Http Microframework Skeleton!
 
 ```bash
 $ hhvm -d xdebug.enable=0 -d hhvm.jit=0 -d hhvm.php7.all=1 -d hhvm.hack.lang.auto_typecheck=0 \
- $(which composer) create-project nazg/skeleton nazg-app-sample --prefer-dist -s dev
+ $(which composer) create-project nazg/skeleton nazg-app-sample --prefer-dist 
 ```
 
 ## Documentation
