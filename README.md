@@ -29,7 +29,7 @@ see https://github.com/ytake/gardening-hhvm#install-gardening-box
 
 ```bash
 $ hhvm -d xdebug.enable=0 -d hhvm.jit=0 -d hhvm.php7.all=1 -d hhvm.hack.lang.auto_typecheck=0 \
- $(which composer) create-project nazg/skeleton nazg-app-sample --prefer-dist 
+ $(which composer) create-project nazg/skeleton nazg-app-sample --prefer-dist
 ```
 
 ## Documentation
@@ -41,4 +41,4 @@ soon
 [Framework](https://github.com/ytake/nazg-framework)
 
 ## License
-The Nazg Framework is licensed under The 3-Clause BSD License. See [License File](LICENSE) for more information.
+The Nazg Framework is licensed under The MIT License (MIT). See [License File](LICENSE) for more information.
