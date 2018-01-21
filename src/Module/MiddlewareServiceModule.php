@@ -16,19 +16,27 @@
  */
 namespace App\Module;
 
-use App\Action\IndexAction;
-use App\Responder\IndexResponder;
 use Ytake\HHContainer\Scope;
 use Ytake\HHContainer\ServiceModule;
 use Ytake\HHContainer\FactoryContainer;
+use Nazg\Http\HttpMethod;
+// use Nazg\Middleware\SimpleCorsMiddleware;
+// use Nazg\Middleware\LogExceptionMiddleware;
 
-final class ActionServiceModule extends ServiceModule {
+final class MiddlewareServiceModule extends ServiceModule {
   <<__Override>>
   public function provide(FactoryContainer $container): void {
-    $container->set(
-      IndexAction::class,
-      $container ==> new IndexAction(new IndexResponder()),
-      Scope::PROTOTYPE,
-    );
+    /** example
+     $container->set(
+     SimpleCorsMiddleware::class,
+     $container ==> new SimpleCorsMiddleware(        shape(
+     'origin' => '*',
+     'header' => 'testing',
+     'methods' => Vector{
+     HttpMethod::GET
+     }
+     )),
+     );
+     */
   }
 }

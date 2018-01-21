@@ -11,7 +11,7 @@
     "psr-15",
     "framework"
   ],
-  "license": "BSD-3-Clause",
+  "license": "MIT",
   "authors": [
     {
       "name": "Yuuki Takezawa",
@@ -22,14 +22,15 @@
     "php": ">=7.0",
     "hhvm": ">=3.23",
     "hhvm/hhvm-autoload": "^1.5",
-    "nazg/framework": "^0.1.0",
+    "nazg/framework": "^0.2.0",
     "facebook/xhp-lib": "~2.2",
     "zendframework/zend-diactoros": "^1.6.1"
   },
   "require-dev": {
-    "phpunit/phpunit": "^6.0",
-    "91carriage/phpunit-hhi": "^6.2.0",
-    "ytake/gardening-hhvm": "^0.1.0"
+    "phpunit/phpunit": "^5.7",
+    "91carriage/phpunit-hhi": "^5.7",
+    "ytake/gardening-hhvm": "^0.1.0",
+    "facebook/fbexpect": "^0.4.0"
   },
   "autoload": {
     "psr-4": {

@@ -29,6 +29,7 @@ call_user_func(
           __DIR__.'/../config/{{,*.}global,{,*.}local}.{hh,php}',
         ),
       ],
+      __DIR__.'/../storages/config/cached.config.php',
     );
     $app = new Application(new \Nazg\Foundation\Dependency\Dependency());
     $app->setApplicationConfig($aggregator->getMergedConfig());

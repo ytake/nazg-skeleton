@@ -14,4 +14,7 @@
  *
  * Copyright (c) 2017-2018 Yuuki Takezawa
  */
-return ['config_cache_enabled' => false];
+return [
+  'config_cache_enabled' => false,
+  'log_dir' => __DIR__.'/../storages/logs/',
+];

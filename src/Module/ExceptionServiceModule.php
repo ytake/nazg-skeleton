@@ -1,4 +1,4 @@
-<?hh
+<?hh // strict
 
 /**
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
@@ -14,4 +14,15 @@
  *
  * Copyright (c) 2017-2018 Yuuki Takezawa
  */
-return [\Nazg\Foundation\Service::MIDDLEWARES => ImmVector {}];
+namespace App\Module;
+
+use Ytake\HHContainer\Scope;
+use Ytake\HHContainer\ServiceModule;
+use Ytake\HHContainer\FactoryContainer;
+use Nazg\Exceptions\ExceptionHandleInterface;
+use Nazg\Foundation\Exception\ExceptionRegister;
+use
+  Nazg\Foundation\Exception\ExceptionServiceModule as NazgExceptionServiceModule
+;
+
+final class ExceptionServiceModule extends NazgExceptionServiceModule {}

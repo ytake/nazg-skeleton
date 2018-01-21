@@ -1,4 +1,4 @@
-<?hh // strict
+<?hh
 
 /**
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
@@ -16,19 +16,34 @@
  */
 namespace App\Module;
 
-use App\Action\IndexAction;
-use App\Responder\IndexResponder;
 use Ytake\HHContainer\Scope;
 use Ytake\HHContainer\ServiceModule;
 use Ytake\HHContainer\FactoryContainer;
+use Nazg\Log\LogServiceModule;
+use Psr\Log\LoggerInterface;
+use Monolog\Logger;
+use Monolog\Monolog;
 
-final class ActionServiceModule extends ServiceModule {
+final class LoggerServiceModule extends LogServiceModule {
+
   <<__Override>>
   public function provide(FactoryContainer $container): void {
     $container->set(
-      IndexAction::class,
-      $container ==> new IndexAction(new IndexResponder()),
-      Scope::PROTOTYPE,
+      LoggerInterface::class,
+      $container ==> $this->filesystemLogger(
+        $container->get(\Nazg\Foundation\Service::CONFIG),
+      ),
+      \Ytake\HHContainer\Scope::SINGLETON,
     );
+  }
+
+  protected function filesystemLogger(mixed $config): LoggerInterface {
+    $monolog = new Logger("Nazg.Log");
+    if (is_array($config)) {
+      $monolog->pushHandler(
+        new StreamHandler($config['log_dir'], Logger::WARNING),
+      );
+    }
+    return $monolog;
   }
 }
