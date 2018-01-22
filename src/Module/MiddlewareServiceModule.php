@@ -16,27 +16,47 @@
  */
 namespace App\Module;
 
+use Psr\Log\LoggerInterface;
 use Ytake\HHContainer\Scope;
 use Ytake\HHContainer\ServiceModule;
 use Ytake\HHContainer\FactoryContainer;
 use Nazg\Http\HttpMethod;
 // use Nazg\Middleware\SimpleCorsMiddleware;
-// use Nazg\Middleware\LogExceptionMiddleware;
+use Nazg\Middleware\LogExceptionMiddleware;
 
 final class MiddlewareServiceModule extends ServiceModule {
   <<__Override>>
   public function provide(FactoryContainer $container): void {
-    /** example
-     $container->set(
-     SimpleCorsMiddleware::class,
-     $container ==> new SimpleCorsMiddleware(        shape(
-     'origin' => '*',
-     'header' => 'testing',
-     'methods' => Vector{
-     HttpMethod::GET
-     }
-     )),
-     );
-     */
+    /** include basic middlewares
+    // for simple cors middleware
+    $container->set(
+      SimpleCorsMiddleware::class,
+      $container ==> new SimpleCorsMiddleware(shape(
+       'origin' => '*',
+       'header' => 'testing',
+       'methods' => Vector{
+         HttpMethod::GET
+        }
+      )),
+    );
+    // for log exception middleware
+    $container->set(
+      LogExceptionMiddleware::class,
+      $container ==> new LogExceptionMiddleware(
+        $this->invariantLoggerInterface($container)
+      ),
+    );
+    */
+  }
+
+  private function invariantLoggerInterface(
+    FactoryContainer $container,
+  ): LoggerInterface {
+    $logger = $container->get(LoggerInterface::class);
+    invariant(
+      $logger instanceof LoggerInterface, 
+      "Interface '\Psr\Log\LoggerInterface' is not implemented by this class",
+    );
+    return $logger;
   }
 }

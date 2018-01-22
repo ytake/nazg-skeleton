@@ -14,4 +14,9 @@
  *
  * Copyright (c) 2017-2018 Yuuki Takezawa
  */
-return [\Nazg\Foundation\Service::MIDDLEWARES => ImmVector {}];
+return [
+  \Nazg\Foundation\Service::MIDDLEWARES => ImmVector {
+    // \Nazg\Middleware\SimpleCorsMiddleware,
+    // \Nazg\Middleware\LogExceptionMiddleware,
+  }
+ ];

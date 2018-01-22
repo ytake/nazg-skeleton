@@ -41,7 +41,7 @@ final class LoggerServiceModule extends LogServiceModule {
     $monolog = new Logger("Nazg.Log");
     if (is_array($config)) {
       $monolog->pushHandler(
-        new StreamHandler($config['log_dir'], Logger::WARNING),
+        new StreamHandler($config['log_file'], Logger::WARNING),
       );
     }
     return $monolog;
