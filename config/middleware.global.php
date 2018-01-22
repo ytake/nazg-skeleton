@@ -15,6 +15,7 @@
  * Copyright (c) 2017-2018 Yuuki Takezawa
  */
 return [
+  // for Global Middlewares
   \Nazg\Foundation\Service::MIDDLEWARES => ImmVector {
     // \Nazg\Middleware\SimpleCorsMiddleware,
     // \Nazg\Middleware\LogExceptionMiddleware,

@@ -22,7 +22,7 @@ use Ytake\HHContainer\ServiceModule;
 use Ytake\HHContainer\FactoryContainer;
 use Nazg\Http\HttpMethod;
 // use Nazg\Middleware\SimpleCorsMiddleware;
-use Nazg\Middleware\LogExceptionMiddleware;
+// use Nazg\Middleware\LogExceptionMiddleware;
 
 final class MiddlewareServiceModule extends ServiceModule {
   <<__Override>>
@@ -54,7 +54,7 @@ final class MiddlewareServiceModule extends ServiceModule {
   ): LoggerInterface {
     $logger = $container->get(LoggerInterface::class);
     invariant(
-      $logger instanceof LoggerInterface, 
+      $logger instanceof LoggerInterface,
       "Interface '\Psr\Log\LoggerInterface' is not implemented by this class",
     );
     return $logger;

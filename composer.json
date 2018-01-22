@@ -30,7 +30,8 @@
     "phpunit/phpunit": "^5.7",
     "91carriage/phpunit-hhi": "^5.7",
     "ytake/gardening-hhvm": "^0.1.0",
-    "facebook/fbexpect": "^0.4.0"
+    "facebook/fbexpect": "^0.4.0",
+    "hhvm/hhast": "^0.6.0"
   },
   "autoload": {
     "psr-4": {
@@ -38,9 +39,9 @@
     }
   },
   "autoload-dev": {
-    "classmap": [
-      "tests/"
-    ]
+    "psr-4": {
+      "AppTest\\": "tests/"
+    }
   },
   "minimum-stability": "stable",
   "extra": {
