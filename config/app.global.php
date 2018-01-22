@@ -16,5 +16,5 @@
  */
 return [
   'config_cache_enabled' => false,
-  'log_dir' => __DIR__.'/../storages/logs/',
+  'log_file' => __DIR__.'/../storages/logs/app.log',
 ];

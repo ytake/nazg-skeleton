@@ -16,6 +16,34 @@
  */
 return [
   \Nazg\Foundation\Service::ROUTES => ImmMap {
+    /**
+     * As Middleware, it needs to be implemented class.
+     *
+     * HttpMethod => ImmMap {
+     *   'endpoint' => ImmVector {
+     *     MiddlewareClass::class, // \Interop\Http\Server\MiddlewareInterface implements Class
+     *   } 
+     * }
+     * 
+     * use enum HttpMethod 
+     * \Nazg\Http\HttpMethod::HEAD
+     * \Nazg\Http\HttpMethod::GET
+     * \Nazg\Http\HttpMethod::POST
+     * \Nazg\Http\HttpMethod::PATCH
+     * \Nazg\Http\HttpMethod::PUT
+     * \Nazg\Http\HttpMethod::DELETE
+     * 
+     * Assigning Middleware To Route
+     * 'endpoint' => ImmVector {
+     *   first - MiddlewareClass::class,
+     *   second - RouteMiddlewareClass::class,
+     * } 
+     * Or
+     * 'endpoint' => ImmVector {
+     *   first - RouteMiddlewareClass::class,
+     *   second - MiddlewareClass::class,
+     * }      
+     */
     \Nazg\Http\HttpMethod::GET => ImmMap {
       '/' => ImmVector {App\Action\IndexAction::class},
     },
