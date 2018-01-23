@@ -1,6 +1,6 @@
 {
   "name": "nazg/skeleton",
-  "description": "Http Microframework for HHVM/Hack",
+  "description": "PSR-7, PSR-11, PSR-15 compliant Action-Domain-Responder (ADR) Micro framework for HHVM/Hack",
   "type": "project",
   "keywords": [
     "hhvm",
@@ -14,7 +14,8 @@
     "middleware",
     "request",
     "response",
-    "route"
+    "route",
+    "xhp"
   ],
   "license": "MIT",
   "authors": [
