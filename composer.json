@@ -9,7 +9,12 @@
     "psr-7",
     "psr-11",
     "psr-15",
-    "framework"
+    "framework",
+    "adr",
+    "middleware",
+    "request",
+    "response",
+    "route"
   ],
   "license": "MIT",
   "authors": [
@@ -20,9 +25,9 @@
   ],
   "require": {
     "php": ">=7.0",
-    "hhvm": ">=3.23",
+    "hhvm": ">=3.24",
     "hhvm/hhvm-autoload": "^1.5",
-    "nazg/framework": "^0.2.0",
+    "nazg/framework": "^0.2.2",
     "facebook/xhp-lib": "~2.2",
     "zendframework/zend-diactoros": "^1.6.1"
   },

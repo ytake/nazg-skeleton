@@ -1,8 +1,9 @@
 # Nazg Framework Skeleton
-Nazg is a HHVM/Hack Microframework that helps you quickly write simple yet powerful web applications.
+Nazg is a PSR-7, PSR-15 compliant Action-Domain-Responder (ADR) HHVM/Hack Micro framework that helps you quickly write simple yet powerful web applications.
 
 Begin developing HHVM/Hack Http Microframework Skeleton!
 
+[![Packagist](https://img.shields.io/badge/HHVM-%3E=3.24-orange.svg?style=flat-square)](https://packagist.org/packages/nazg/skeleton)
 [![Build Status](http://img.shields.io/travis/nazg-hack/framework/master.svg?style=flat-square)](https://travis-ci.org/nazg-hack/framework)
 [![Packagist](https://img.shields.io/packagist/dt/nazg/skeleton.svg?style=flat-square)](https://packagist.org/packages/nazg/skeleton)
 [![Packagist](https://img.shields.io/packagist/v/nazg/skeleton.svg?style=flat-square)](https://packagist.org/packages/nazg/skeleton)
