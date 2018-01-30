@@ -28,7 +28,7 @@
     "php": ">=7.0",
     "hhvm": ">=3.24",
     "hhvm/hhvm-autoload": "^1.5",
-    "nazg/framework": "^0.2.2",
+    "nazg/framework": "^0.2.3",
     "facebook/xhp-lib": "~2.2",
     "zendframework/zend-diactoros": "^1.6.1"
   },

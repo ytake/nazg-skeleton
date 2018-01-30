@@ -16,13 +16,29 @@
  */
 namespace App\Module;
 
+use App\Exception\AppExceptionHandler;
 use Ytake\HHContainer\Scope;
 use Ytake\HHContainer\ServiceModule;
 use Ytake\HHContainer\FactoryContainer;
+use Nazg\Response\Emitter;
 use Nazg\Exceptions\ExceptionHandleInterface;
 use Nazg\Foundation\Exception\ExceptionRegister;
 use
   Nazg\Foundation\Exception\ExceptionServiceModule as NazgExceptionServiceModule
 ;
 
-final class ExceptionServiceModule extends NazgExceptionServiceModule {}
+final class ExceptionServiceModule extends NazgExceptionServiceModule {
+  <<__Override>>
+  public function provide(FactoryContainer $container): void {
+    $container->set(
+      ExceptionHandleInterface::class,
+      $container ==> new AppExceptionHandler(new Emitter()),
+    );
+    $container->set(
+      ExceptionRegister::class,
+      $container ==> new ExceptionRegister(
+        $this->invariantExceptionHandler($container),
+      ),
+    );
+  }
+}

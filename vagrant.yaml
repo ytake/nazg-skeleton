@@ -1,0 +1,16 @@
+ip: 192.168.10.10
+memory: 2048
+cpus: 1
+hostname: gardening-hhvm
+name: gardening-hhvm
+authorize: ~/.ssh/id_rsa.pub
+keys:
+    - ~/.ssh/id_rsa
+folders:
+    -
+        map: ./
+        to: /home/vagrant/your_dir_name
+sites:
+    -
+        map: nazg.vagrant
+        to: /home/vagrant/your_dir_name/public
