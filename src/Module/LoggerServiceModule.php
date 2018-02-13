@@ -23,6 +23,7 @@ use Nazg\Log\LogServiceModule;
 use Psr\Log\LoggerInterface;
 use Monolog\Logger;
 use Monolog\Monolog;
+use Monolog\Handler\StreamHandler;
 
 final class LoggerServiceModule extends LogServiceModule {
 
