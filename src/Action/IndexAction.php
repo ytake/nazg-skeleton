@@ -16,7 +16,7 @@
  */
 namespace App\Action;
 
-use App\Responder\IndexResponder;
+use App\Responder\IndexJsonResponder;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
@@ -24,7 +24,7 @@ use Psr\Http\Server\RequestHandlerInterface;
 
 final class IndexAction implements MiddlewareInterface {
 
-  public function __construct(private IndexResponder $responder) {}
+  public function __construct(private IndexJsonResponder $responder) {}
 
   public function process(
     ServerRequestInterface $request,

@@ -14,15 +14,19 @@
  *
  * Copyright (c) 2017-2018 Yuuki Takezawa
  */
+use Nazg\Http\HttpMethod;
+
 return [
   \Nazg\Foundation\Service::ROUTES => ImmMap {
     /**
      * As Middleware, it needs to be implemented class.
      *
      * HttpMethod => ImmMap {
-     *   'endpoint' => ImmVector {
-     *     MiddlewareClass::class, // \Interop\Http\Server\MiddlewareInterface implements Class
-     *   } 
+     *   'endpoint' => shape(
+     *     'middleware' => ImmVector {
+     *       MiddlewareClass::class, // \Interop\Http\Server\MiddlewareInterface implements Class
+     *     } 
+     *   )
      * }
      * 
      * use enum HttpMethod 
@@ -34,18 +38,17 @@ return [
      * \Nazg\Http\HttpMethod::DELETE
      * 
      * Assigning Middleware To Route
-     * 'endpoint' => ImmVector {
-     *   first - MiddlewareClass::class,
-     *   second - RouteMiddlewareClass::class,
-     * } 
-     * Or
-     * 'endpoint' => ImmVector {
-     *   first - RouteMiddlewareClass::class,
-     *   second - MiddlewareClass::class,
-     * }      
+     * 'endpoint' => shape(
+     *   'middleware' => ImmVector{
+     *     first - MiddlewareClass::class,
+     *     second - RouteMiddlewareClass::class,
+     *   }
+     * ) 
      */
-    \Nazg\Http\HttpMethod::GET => ImmMap {
-      '/' => ImmVector {App\Action\IndexAction::class},
+    HttpMethod::GET => ImmMap {
+      '/' => shape(
+        'middleware' => ImmVector {App\Action\IndexAction::class}
+      ),
     },
   },
 ];

@@ -16,19 +16,35 @@
  */
 namespace App\Module;
 
-use App\Action\IndexAction;
-use App\Responder\IndexJsonResponder;
+use Nazg\Cache\Driver;
+use Nazg\Cache\CacheConfiguration;
+use Nazg\Foundation\Service;
 use Ytake\HHContainer\Scope;
 use Ytake\HHContainer\ServiceModule;
 use Ytake\HHContainer\FactoryContainer;
 
-final class ActionServiceModule extends ServiceModule {
+final class CacheServiceModule extends \Nazg\Cache\CacheServiceModule {
+
   <<__Override>>
   public function provide(FactoryContainer $container): void {
-    $container->set(
-      IndexAction::class,
-      $container ==> new IndexAction(new IndexJsonResponder()),
-      Scope::PROTOTYPE,
-    );
+    $config = $container->get(Service::CONFIG);
+    if (is_array($config)) {
+      $this->defaultDriver = $config[Service::CACHE]['driver'];
+    }
+    parent::provide($container);
+  }
+
+  <<__Override>>
+  protected function cacheConfigure(FactoryContainer $container): CacheConfiguration {
+    $config = $container->get(Service::CONFIG);
+    if (is_array($config)) {
+      $drivers = $config[Service::CACHE]['drivers'];
+      return new CacheConfiguration(
+        $drivers[Driver::Memcached],
+        $drivers[Driver::File],
+        $drivers[Driver::Redis],
+      );
+    }
+    return new CacheConfiguration();
   }
 }

@@ -21,8 +21,7 @@ use Ytake\HHConfigAggreagator\PhpFileProvider;
 use Zend\Diactoros\ServerRequestFactory;
 
 require __DIR__.'/../vendor/hh_autoload.php';
-call_user_func(
-  function() {
+call_user_func(() ==> {
     $aggregator = new ConfigAggreagator(
       [
         new PhpFileProvider(

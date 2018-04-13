@@ -1,0 +1,16 @@
+language: php
+sudo: required
+dist: trusty
+php:
+ - hhvm
+ 
+services:
+ - memcached
+ - redis
+
+install: composer install
+
+script:
+ - hh_client
+ - hhvm -d hhvm.php7.all=1 -d hhvm.jit=0 -d hhvm.hack.lang.auto_typecheck=0 vendor/bin/phpunit
+ 
