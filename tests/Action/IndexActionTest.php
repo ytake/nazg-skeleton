@@ -3,7 +3,7 @@
 namespace AppTest\Action;
 
 use App\Action\IndexAction;
-use App\Responder\IndexResponder;
+use App\Responder\IndexJsonResponder;
 use AppTest\AppStubRequestHandler;
 use PHPUnit\Framework\TestCase;
 use Zend\Diactoros\ServerRequestFactory;
@@ -12,7 +12,7 @@ use function Facebook\FBExpect\expect;
 class IndexActionTest extends TestCase {
 
   public function testShouldBe(): void {
-    $action = new IndexAction(new IndexResponder());
+    $action = new IndexAction(new IndexJsonResponder());
     $result = $action->process(
       ServerRequestFactory::fromGlobals(),
       new AppStubRequestHandler()
