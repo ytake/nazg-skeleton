@@ -33,7 +33,7 @@ $ hhvm -d xdebug.enable=0 -d hhvm.jit=0 -d hhvm.php7.all=1 -d hhvm.hack.lang.aut
 
 ## Documentation
 
-soon
+[日本語ドキュメント / Japanese](https://github.com/nazg-hack/docs/blob/master/docs/ja/index.md)
 
 ## Framework Repository
 
