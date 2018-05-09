@@ -27,8 +27,8 @@
   "require": {
     "php": ">=7.0",
     "hhvm": ">=3.25.0",
-    "hhvm/hhvm-autoload": "^1.5",
-    "nazg/framework": "^0.3.0",
+    "hhvm/hhvm-autoload": "^1.6",
+    "nazg/framework": "^0.3.1",
     "facebook/xhp-lib": "~2.2",
     "zendframework/zend-diactoros": "^1.7.0"
   },
@@ -37,7 +37,7 @@
     "91carriage/phpunit-hhi": "^5.7",
     "ytake/gardening-hhvm": "^0.1.0",
     "facebook/fbexpect": "^0.4.0",
-    "hhvm/hhast": "^1.0.0"
+    "hhvm/hhast": "^1.0.1"
   },
   "autoload": {
     "psr-4": {

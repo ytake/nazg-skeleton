@@ -28,7 +28,7 @@ final class CacheServiceModule extends \Nazg\Cache\CacheServiceModule {
   <<__Override>>
   public function provide(FactoryContainer $container): void {
     $config = $container->get(Service::CONFIG);
-    if (is_array($config)) {
+    if (\is_array($config)) {
       $this->defaultDriver = $config[Service::CACHE]['driver'];
     }
     parent::provide($container);
@@ -37,7 +37,7 @@ final class CacheServiceModule extends \Nazg\Cache\CacheServiceModule {
   <<__Override>>
   protected function cacheConfigure(FactoryContainer $container): CacheConfiguration {
     $config = $container->get(Service::CONFIG);
-    if (is_array($config)) {
+    if (\is_array($config)) {
       $drivers = $config[Service::CACHE]['drivers'];
       return new CacheConfiguration(
         $drivers[Driver::Memcached],

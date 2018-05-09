@@ -40,7 +40,7 @@ final class LoggerServiceModule extends LogServiceModule {
 
   protected function filesystemLogger(mixed $config): LoggerInterface {
     $monolog = new Logger("Nazg.Log");
-    if (is_array($config)) {
+    if (\is_array($config)) {
       $monolog->pushHandler(
         new StreamHandler($config['log_file'], Logger::WARNING),
       );

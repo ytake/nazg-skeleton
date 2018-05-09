@@ -24,7 +24,7 @@ final class :div:index extends :x:element {
     return (
             <div id={$id}>
               <h1>Nazg</h1>
-              Begin developing HHVM/Hack Http Application / {phpversion()}
+              Begin developing HHVM/Hack Http Application / {\phpversion()}
             </div>
     );
   }
