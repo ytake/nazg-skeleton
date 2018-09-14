@@ -14,11 +14,13 @@
  *
  * Copyright (c) 2017-2018 Yuuki Takezawa
  */
-use Nazg\Foundation\Application;
-use Ytake\HHConfigAggreagator\ArrayProvider;
-use Ytake\HHConfigAggreagator\ConfigAggreagator;
-use Ytake\HHConfigAggreagator\PhpFileProvider;
-use Zend\Diactoros\ServerRequestFactory;
+use type Nazg\Foundation\Application;
+use type Ytake\HHConfigAggreagator\ArrayProvider;
+use type Ytake\HHConfigAggreagator\ConfigAggreagator;
+use type Ytake\HHConfigAggreagator\PhpFileProvider;
+use type Zend\Diactoros\ServerRequestFactory;
+
+use function call_user_func;
 
 require __DIR__.'/../vendor/hh_autoload.php';
 call_user_func(() ==> {

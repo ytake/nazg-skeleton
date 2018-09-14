@@ -2,11 +2,11 @@
 
 namespace AppTest\Action;
 
-use App\Action\IndexAction;
-use App\Responder\IndexJsonResponder;
-use AppTest\AppStubRequestHandler;
-use PHPUnit\Framework\TestCase;
-use Zend\Diactoros\ServerRequestFactory;
+use type App\Action\IndexAction;
+use type App\Responder\IndexJsonResponder;
+use type AppTest\AppStubRequestHandler;
+use type PHPUnit\Framework\TestCase;
+use type Zend\Diactoros\ServerRequestFactory;
 use function Facebook\FBExpect\expect;
 
 class IndexActionTest extends TestCase {

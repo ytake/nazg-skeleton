@@ -2,17 +2,17 @@
 
 namespace AppTest\Exception;
 
-use PHPUnit\Framework\TestCase;
-use App\Exception\AppExceptionHandler;
+use type PHPUnit\Framework\TestCase;
+use type App\Exception\AppExceptionHandler;
 use Ytake\HHContainer\ServiceModule;
 use Ytake\HHContainer\FactoryContainer;
-use Nazg\Response\Emitter;
+use type Nazg\Response\Emitter;
 use Nazg\Exceptions\ExceptionHandleInterface;
 use Nazg\Foundation\Exception\ExceptionHandler;
-use Nazg\Foundation\Exception\ExceptionRegister;
+use type Nazg\Foundation\Exception\ExceptionRegister;
 use Nazg\Foundation\Exception\ExceptionServiceModule;
 use function Facebook\FBExpect\expect;
-use Psr\Http\Message\ResponseInterface;
+use type Psr\Http\Message\ResponseInterface;
 
 class AppExceptionHandlerTest extends TestCase {
 

@@ -16,11 +16,11 @@
  */
 namespace App\Action;
 
-use App\Responder\IndexJsonResponder;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
-use Psr\Http\Server\MiddlewareInterface;
-use Psr\Http\Server\RequestHandlerInterface;
+use type App\Responder\IndexJsonResponder;
+use type Psr\Http\Message\ResponseInterface;
+use type Psr\Http\Message\ServerRequestInterface;
+use type Psr\Http\Server\MiddlewareInterface;
+use type Psr\Http\Server\RequestHandlerInterface;
 
 final class IndexAction implements MiddlewareInterface {
 

@@ -14,6 +14,20 @@ Begin developing HHVM/Hack Http Microframework Skeleton!
  - [Simple Dependency Injection Container For Hack](https://github.com/ytake/hh-container)
  - [PSR-7/PSR-15 Compliant Middleware Component](https://github.com/ytake/heredity)
 
+## Create Project
+
+```bash
+$ hhvm -d xdebug.enable=0 -d hhvm.jit=0 -d hhvm.php7.all=1 -d hhvm.hack.lang.auto_typecheck=0 \
+ $(which composer) create-project nazg/skeleton nazg-app-sample --prefer-dist
+```
+
+## Docker
+
+```bash
+$ docker-compose up
+$ docker-compose exec hhvm /bin/bash -c 'cd /var/www/html && composer update'
+```
+
 ## Vagrant
 
 [Gardening-HHVM Vagrant Box](https://app.vagrantup.com/ytake/boxes/gardening-hhvm)
@@ -23,13 +37,6 @@ $ vagrant box add ytake/gardening-hhvm
 ```
 
 see https://github.com/ytake/gardening-hhvm#install-gardening-box
-
-## Create Project
-
-```bash
-$ hhvm -d xdebug.enable=0 -d hhvm.jit=0 -d hhvm.php7.all=1 -d hhvm.hack.lang.auto_typecheck=0 \
- $(which composer) create-project nazg/skeleton nazg-app-sample --prefer-dist
-```
 
 ## Documentation
 

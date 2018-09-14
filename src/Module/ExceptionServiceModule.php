@@ -16,16 +16,12 @@
  */
 namespace App\Module;
 
-use App\Exception\AppExceptionHandler;
-use Ytake\HHContainer\Scope;
-use Ytake\HHContainer\ServiceModule;
-use Ytake\HHContainer\FactoryContainer;
-use Nazg\Response\Emitter;
-use Nazg\Exceptions\ExceptionHandleInterface;
-use Nazg\Foundation\Exception\ExceptionRegister;
-use
-  Nazg\Foundation\Exception\ExceptionServiceModule as NazgExceptionServiceModule
-;
+use type App\Exception\AppExceptionHandler;
+use type Ytake\HHContainer\FactoryContainer;
+use type Nazg\Response\Emitter;
+use type Nazg\Exceptions\ExceptionHandleInterface;
+use type Nazg\Foundation\Exception\ExceptionRegister;
+use type Nazg\Foundation\Exception\ExceptionServiceModule as NazgExceptionServiceModule;
 
 final class ExceptionServiceModule extends NazgExceptionServiceModule {
   <<__Override>>

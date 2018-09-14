@@ -16,14 +16,15 @@
  */
 namespace App\Module;
 
-use Ytake\HHContainer\Scope;
-use Ytake\HHContainer\ServiceModule;
-use Ytake\HHContainer\FactoryContainer;
-use Nazg\Log\LogServiceModule;
-use Psr\Log\LoggerInterface;
-use Monolog\Logger;
-use Monolog\Monolog;
-use Monolog\Handler\StreamHandler;
+use namespace Monolog\Monolog;
+
+use type Ytake\HHContainer\FactoryContainer;
+use type Nazg\Log\LogServiceModule;
+use type Psr\Log\LoggerInterface;
+use type Monolog\Logger;
+use type Monolog\Handler\StreamHandler;
+
+use function is_array;
 
 final class LoggerServiceModule extends LogServiceModule {
 
@@ -40,7 +41,7 @@ final class LoggerServiceModule extends LogServiceModule {
 
   protected function filesystemLogger(mixed $config): LoggerInterface {
     $monolog = new Logger("Nazg.Log");
-    if (\is_array($config)) {
+    if (is_array($config)) {
       $monolog->pushHandler(
         new StreamHandler($config['log_file'], Logger::WARNING),
       );

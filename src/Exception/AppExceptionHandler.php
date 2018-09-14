@@ -16,10 +16,10 @@
  */
 namespace App\Exception;
 
-use Throwable;
-use Nazg\Types\ExceptionImmMap;
-use Nazg\Foundation\Exception\ExceptionHandler;
-use Psr\Http\Message\ResponseInterface;
+use type Throwable;
+use type Nazg\Types\ExceptionImmMap;
+use type Nazg\Foundation\Exception\ExceptionHandler;
+use type Psr\Http\Message\ResponseInterface;
 
 class AppExceptionHandler extends ExceptionHandler {
   <<__Override>>

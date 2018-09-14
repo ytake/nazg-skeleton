@@ -16,10 +16,10 @@
  */
 namespace App\Module;
 
-use Psr\Log\LoggerInterface;
+use type Psr\Log\LoggerInterface;
 use Ytake\HHContainer\Scope;
-use Ytake\HHContainer\ServiceModule;
-use Ytake\HHContainer\FactoryContainer;
+use type Ytake\HHContainer\ServiceModule;
+use type Ytake\HHContainer\FactoryContainer;
 use Nazg\Http\HttpMethod;
 // use Nazg\Middleware\SimpleCorsMiddleware;
 // use Nazg\Middleware\LogExceptionMiddleware;

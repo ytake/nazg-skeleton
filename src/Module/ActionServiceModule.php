@@ -16,11 +16,11 @@
  */
 namespace App\Module;
 
-use App\Action\IndexAction;
-use App\Responder\IndexJsonResponder;
-use Ytake\HHContainer\Scope;
-use Ytake\HHContainer\ServiceModule;
-use Ytake\HHContainer\FactoryContainer;
+use type App\Action\IndexAction;
+use type App\Responder\IndexJsonResponder;
+use type Ytake\HHContainer\Scope;
+use type Ytake\HHContainer\ServiceModule;
+use type Ytake\HHContainer\FactoryContainer;
 
 final class ActionServiceModule extends ServiceModule {
   <<__Override>>

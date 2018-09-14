@@ -16,19 +16,19 @@
  */
 namespace App\Module;
 
-use Nazg\Cache\Driver;
-use Nazg\Cache\CacheConfiguration;
-use Nazg\Foundation\Service;
-use Ytake\HHContainer\Scope;
-use Ytake\HHContainer\ServiceModule;
-use Ytake\HHContainer\FactoryContainer;
+use type Nazg\Cache\Driver;
+use type Nazg\Cache\CacheConfiguration;
+use type Nazg\Foundation\Service;
+use type Ytake\HHContainer\FactoryContainer;
+
+use function is_array;
 
 final class CacheServiceModule extends \Nazg\Cache\CacheServiceModule {
 
   <<__Override>>
   public function provide(FactoryContainer $container): void {
     $config = $container->get(Service::CONFIG);
-    if (\is_array($config)) {
+    if (is_array($config)) {
       $this->defaultDriver = $config[Service::CACHE]['driver'];
     }
     parent::provide($container);
@@ -37,7 +37,7 @@ final class CacheServiceModule extends \Nazg\Cache\CacheServiceModule {
   <<__Override>>
   protected function cacheConfigure(FactoryContainer $container): CacheConfiguration {
     $config = $container->get(Service::CONFIG);
-    if (\is_array($config)) {
+    if (is_array($config)) {
       $drivers = $config[Service::CACHE]['drivers'];
       return new CacheConfiguration(
         $drivers[Driver::Memcached],

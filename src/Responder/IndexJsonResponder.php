@@ -16,8 +16,8 @@
  */
 namespace App\Responder;
 
-use Psr\Http\Message\ResponseInterface;
-use Zend\Diactoros\Response\JsonResponse;
+use type Psr\Http\Message\ResponseInterface;
+use type Zend\Diactoros\Response\JsonResponse;
 
 final class IndexJsonResponder {
 

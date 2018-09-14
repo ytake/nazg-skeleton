@@ -26,18 +26,18 @@
   ],
   "require": {
     "php": ">=7.0",
-    "hhvm": ">=3.25.0",
+    "hhvm": ">=3.28.0",
     "hhvm/hhvm-autoload": "^1.6",
-    "nazg/framework": "^0.3.1",
-    "facebook/xhp-lib": "~2.2",
+    "nazg/framework": "^0.4.1",
+    "facebook/xhp-lib": "^2.7",
     "zendframework/zend-diactoros": "^1.7.0"
   },
   "require-dev": {
     "phpunit/phpunit": "^5.7",
     "91carriage/phpunit-hhi": "^5.7",
-    "ytake/gardening-hhvm": "^0.1.0",
-    "facebook/fbexpect": "^0.4.0",
-    "hhvm/hhast": "^1.0.1"
+    "facebook/fbexpect": "^2.0",
+    "hhvm/hhast": "^3.28",
+    "hhvm/hacktest": "^0.1"
   },
   "autoload": {
     "psr-4": {

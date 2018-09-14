@@ -16,8 +16,8 @@
  */
 namespace App\Responder;
 
-use Psr\Http\Message\ResponseInterface;
-use Zend\Diactoros\Response\HtmlResponse;
+use type Psr\Http\Message\ResponseInterface;
+use type Zend\Diactoros\Response\HtmlResponse;
 
 final class IndexResponder {
 
