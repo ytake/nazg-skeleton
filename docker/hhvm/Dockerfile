@@ -1,8 +1,9 @@
-FROM hhvm/hhvm:3.28.1
-RUN apt-get update
+FROM hhvm/hhvm:latest
 
-RUN cd '/' \
- && php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
- && php composer-setup.php \
- && php -r "unlink('composer-setup.php');" \
- && mv composer.phar /usr/local/bin/composer
+RUN apt-get update
+RUN DEBIAN_FRONTEND=noninteractive
+RUN apt install -y dnsutils iputils-ping net-tools
+
+RUN hhvm --version && php --version
+RUN cd $(mktemp -d) \ 
+ && curl https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
