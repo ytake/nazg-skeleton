@@ -6,9 +6,15 @@ use namespace Nazg\Foundation;
 use namespace HH\Lib\Experimental\IO;
 
 function bootApp(): Foundation\Application {
-  $builder = new ContainerBuilder();
   list($read, $write) = IO\pipe_non_disposable();
   $config = new Config\ApplicationConfig();
+
+  $cache = new Config\CacheConfig();
+  $cacheConfig = $cache->getConfiguration();
+  $config->setMemcachedCacheConfig($cacheConfig['memcached']);
+  $config->setCacheDriver($cacheConfig['cache_driver']);
+  $config->setFilesystemCacheConfig($cacheConfig['file']);
+
   $config->setRoutes(
     (new Config\RouteConfig())->getConfiguration()
   );
@@ -21,10 +27,7 @@ function bootApp(): Foundation\Application {
       'logname' => 'applog'
     )
   );
-  $app = new Foundation\Application(
-    $builder->make(),
-    $read,
-    $write
-  );
-  return $app->build($config);
+  $builder = new ContainerBuilder();
+  return new Foundation\Application($builder->make(), $read, $write)
+  |> $$->build($config);
 }

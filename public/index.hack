@@ -5,6 +5,7 @@ use namespace HH\Lib\Experimental\IO;
 
 <<__EntryPoint>>
 function main(): void {
-  $app = bootApp();
-  $app->run(ServerRequestFactory::fromGlobals());
+  \HH\Asio\join(
+    bootApp()->runAsync(ServerRequestFactory::fromGlobals())
+  );
 }
