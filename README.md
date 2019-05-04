@@ -1,5 +1,5 @@
 # Nazg Framework Skeleton
-Nazg is a PSR-7, PSR-15 compliant Action-Domain-Responder (ADR) Micro framework that helps you quickly write simple yet powerful web applications for HHVM/Hack.
+Nazg is a Action-Domain-Responder (ADR) Micro framework that helps you quickly write simple yet powerful web applications for HHVM/Hack.
 
 Begin developing HHVM/Hack Http Microframework Skeleton!
 

@@ -5,29 +5,34 @@ use namespace App\Config;
 use namespace Nazg\Foundation;
 use namespace HH\Lib\Experimental\IO;
 
+use type Ytake\HHConfigAggreagator\ArrayProvider;
+use type Ytake\HHConfigAggreagator\ConfigAggreagator;
+use type Ytake\HHConfigAggreagator\PhpFileProvider;
+
 function bootApp(): Foundation\Application {
+  $aggregator = new ConfigAggreagator(
+    vec[
+      new PhpFileProvider(__DIR__.'/../config/{{,*.}global,{,*.}local}.php',)
+    ],
+    __DIR__. '/../storages/cached.config.cache.php'
+  );
+  $config = $aggregator->getMergedConfig();
+  $cacheConfig = $config['cache'];
+  $appConfig = new Config\ApplicationConfig();
+  /* HH_FIXME[4063] config dict access */
+  $appConfig->setMemcachedCacheConfig($cacheConfig['memcached']);
+  /* HH_FIXME[4063] config dict access */
+  $appConfig->setCacheDriver($cacheConfig['cache_driver']);
+  /* HH_FIXME[4063] config dict access */
+  $appConfig->setFilesystemCacheConfig($cacheConfig['file']);
+  /* HH_FIXME[4110] config dict access */
+  $appConfig->setRoutes($config['routes']);
+  /* HH_FIXME[4110] config dict access */
+  $appConfig->setServiceProviders($config['providers']);
+  /* HH_FIXME[4110] config dict access */
+  $appConfig->setLogConfig($config['logs']);
   list($read, $write) = IO\pipe_non_disposable();
-  $config = new Config\ApplicationConfig();
-
-  $cache = new Config\CacheConfig();
-  $cacheConfig = $cache->getConfiguration();
-  $config->setMemcachedCacheConfig($cacheConfig['memcached']);
-  $config->setCacheDriver($cacheConfig['cache_driver']);
-  $config->setFilesystemCacheConfig($cacheConfig['file']);
-
-  $config->setRoutes(
-    (new Config\RouteConfig())->getConfiguration()
-  );
-  $config->setServiceProviders(
-    (new Config\ProviderConfig())->getConfiguration()
-  );
-  $config->setLogConfig(
-    shape(
-      'logfile' => realpath(__DIR__ . '/../storages/logs/app.log'),
-      'logname' => 'applog'
-    )
-  );
   $builder = new ContainerBuilder();
   return new Foundation\Application($builder->make(), $read, $write)
-  |> $$->build($config);
+  |> $$->build($appConfig);
 }

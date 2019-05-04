@@ -1,14 +1,10 @@
 {
   "name": "nazg/skeleton",
-  "description": "PSR-7, PSR-11, PSR-15 compliant Action-Domain-Responder (ADR) Micro framework for HHVM/Hack",
+  "description": "Action-Domain-Responder (ADR) Micro framework for HHVM/Hack",
   "type": "project",
   "keywords": [
     "hhvm",
     "hack",
-    "psr",
-    "psr-7",
-    "psr-11",
-    "psr-15",
     "framework",
     "adr",
     "middleware",
@@ -29,7 +25,10 @@
     "hhvm/hsl": "^4.0",
     "hhvm/hsl-experimental": "^4.0",
     "hhvm/hhvm-autoload": "^2.0.0",
-    "nazg/framework": "dev-master"
+    "nazg/framework": "dev-master",
+    "ytake/hh-config-aggregator": "^0.5.0",
+    "ytake/hackdotenv": "^0.3.0",
+    "facebook/xhp-lib": "^2.9.4"
   },
   "require-dev": {
     "hhvm/hacktest": "^1.5",

@@ -1,5 +1,6 @@
 namespace App\Providers;
 
+use namespace App\Action;
 use type Nazg\Foundation\ConsistentServiceProvider;
 
 final class ActionProvider extends ConsistentServiceProvider {
@@ -7,7 +8,7 @@ final class ActionProvider extends ConsistentServiceProvider {
   <<__Override>>
   public function apply(): void {
     $this->container
-      ->bind(\App\Action\IndexAction::class)
-      ->to(\App\Action\IndexAction::class);
+      ->bind(Action\IndexAction::class)
+      ->provider(new Action\IndexActionProvider());
   }
 }
