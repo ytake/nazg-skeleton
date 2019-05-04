@@ -25,7 +25,7 @@
     "hhvm/hsl": "^4.0",
     "hhvm/hsl-experimental": "^4.0",
     "hhvm/hhvm-autoload": "^2.0.0",
-    "nazg/framework": "dev-master",
+    "nazg/framework": "^0.5.0",
     "ytake/hh-config-aggregator": "^0.5.0",
     "ytake/hackdotenv": "^0.3.0",
     "facebook/xhp-lib": "^2.9.4"

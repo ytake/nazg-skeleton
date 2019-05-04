@@ -15,10 +15,9 @@ final class IndexAction implements AsyncMiddlewareInterface {
 
   public async function processAsync(
     WriteHandle $writeHandle,
-    ServerRequestInterface $request,
+    ServerRequestInterface $_,
     AsyncRequestHandlerInterface $_,
   ): Awaitable<ResponseInterface> {
-    \var_dump($request->getServerParams());
     return await $this->responder
       ->invokeAsync($writeHandle, dict[
         'Nazg Hack Framework' => 'You have arrived.',
