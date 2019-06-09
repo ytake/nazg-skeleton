@@ -11,5 +11,24 @@ services:
     command: hhvm --mode server -vServer.AllowRunAsRoot=1
     restart: always
     tty: true
+    container_name: hhvm
     ports:
-      - "80:80"
+      - 19001:19001
+  web-server:
+    build:
+      context: .
+      dockerfile: ./docker/nginx/Dockerfile
+    ports:
+      - 80:80
+    command: >
+      /bin/sh -c
+      "envsubst '
+      $$NGINX_SERVER_NAME
+      '< /etc/nginx/conf.d/hhvm.conf.template
+      > /etc/nginx/conf.d/hhvm.conf && nginx -g 'daemon off;'"
+    environment:
+      NGINX_SERVER_NAME: "nazg.local"
+    container_name: web-server
+    tty: true
+    depends_on:
+      - "hhvm"

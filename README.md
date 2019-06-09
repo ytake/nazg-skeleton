@@ -19,10 +19,46 @@ Begin developing HHVM/Hack Http Microframework Skeleton!
 $ composer create-project nazg/skeleton nazg-app-sample --prefer-dist
 ```
 
-## Docker
+## For Develop
+
+Execute the hh-autoload.hack script each time you add the class file.
+
+For Example  
+```bash
+$ hhvm ./vendor/bin/hh-autoload.hack
+```
+
+## Testing 
 
 ```bash
-$ docker-compose up
+$ hhvm ./vendor/bin/hacktest.hack tests/
+```
+
+## CLI Tools
+CLI Tools Provided by Default
+
+### Cache Clear Command
+
+for [Nazg\HCache](https://github.com/nazg-hack/hcache)
+
+```bash
+$ hhvm ./bin/cache-clear.hack
+```
+
+### Container Cache Clear Command
+
+for [Nazg\Glue](https://github.com/nazg-hack/glue)
+
+```bash
+$ hhvm ./bin/container-cache-clear.hack 
+```
+
+## Docker
+
+Using [hhvm/hhvm-proxygen:4.8-latest](https://hub.docker.com/r/hhvm/hhvm-proxygen/tags) and [nginx:1.17-alpine](https://hub.docker.com/_/nginx/?tab=tags) Containers
+
+```bash
+$ docker-compose up -d
 $ docker-compose exec hhvm /bin/bash -c 'cd /var/www/html && composer update'
 ```
 

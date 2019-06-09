@@ -4,15 +4,12 @@ use type Nazg\Glue\ContainerBuilder;
 use namespace App\Config;
 use namespace Nazg\Foundation;
 use namespace HH\Lib\Experimental\IO;
-
-use type Ytake\HHConfigAggreagator\ArrayProvider;
-use type Ytake\HHConfigAggreagator\ConfigAggreagator;
-use type Ytake\HHConfigAggreagator\PhpFileProvider;
+use namespace Ytake\HHConfigAggreagator;
 
 function bootApp(): Foundation\Application {
-  $aggregator = new ConfigAggreagator(
+  $aggregator = new HHConfigAggreagator\ConfigAggreagator(
     vec[
-      new PhpFileProvider(__DIR__.'/../config/{{,*.}global,{,*.}local}.php',)
+      new HHConfigAggreagator\PhpFileProvider(__DIR__.'/../config/{{,*.}global,{,*.}local}.php',)
     ],
     __DIR__. '/../storages/cached.config.cache.php'
   );
