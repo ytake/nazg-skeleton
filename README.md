@@ -55,11 +55,25 @@ $ hhvm ./bin/container-cache-clear.hack
 
 ## Docker
 
-Using [hhvm/hhvm-proxygen:4.8-latest](https://hub.docker.com/r/hhvm/hhvm-proxygen/tags) and [nginx:1.17-alpine](https://hub.docker.com/_/nginx/?tab=tags) Containers
+Using [hhvm/hhvm-proxygen:latest](https://hub.docker.com/r/hhvm/hhvm-proxygen/tags) and [nginx:1.17-alpine](https://hub.docker.com/_/nginx/?tab=tags) Containers
 
 ```bash
 $ docker-compose up -d
-$ docker-compose exec hhvm /bin/bash -c 'cd /var/www/html && composer update'
+$ docker-compose exec hhvm /bin/bash -c 'cd /var/www && composer update'
+```
+
+### Composer Scripts
+
+#### Class Registrarion
+
+```bash
+docker-compose exec hhvm /bin/bash -c 'cd /var/www && composer register'
+```
+
+#### Testing
+
+```bash
+docker-compose exec hhvm /bin/bash -c 'cd /var/www && composer tests'
 ```
 
 ## Framework Repository

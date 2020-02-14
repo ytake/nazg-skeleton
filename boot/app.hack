@@ -28,7 +28,7 @@ function bootApp(): Foundation\Application {
   $appConfig->setServiceProviders($config['providers']);
   /* HH_FIXME[4110] config dict access */
   $appConfig->setLogConfig($config['logs']);
-  list($read, $write) = IO\pipe_non_disposable();
+  list($read, $write) = IO\pipe_nd();
   $builder = new ContainerBuilder();
   return new Foundation\Application($builder->make(), $read, $write)
   |> $$->build($appConfig);

@@ -6,23 +6,25 @@ use function Facebook\FBExpect\expect;
 final class HalResponseTest extends HackTest {
 
   public async function testShouldReturnEmptyJsonBody(): Awaitable<void> {
-    list($read, $write) = IO\pipe_non_disposable();
+    list($read, $write) = IO\pipe_nd();
     $r = new HalResponse($write);
-    await $write->writeAsync(\json_encode(new ImmMap([])));
+    await $write->writeAsync(\json_encode(dict[]));
     expect($r->getStatusCode())->toBeSame(200);
     expect($r->getProtocolVersion())->toBeSame('1.1');
     expect($r->getReasonPhrase())->toBeSame('OK');
     expect($r->getHeaders())->toBeSame(dict[
       'content-type' => vec['application/hal+json; charset=utf-8'],
     ]);
-    await $r->getBody()->closeAsync();
-    $re = await $read->readAsync();
-    expect($re)->toBeSame('{}');
+    await $write->closeAsync();
+    $re = $r->getBody();
+    expect($re)
+      ->toBeInstanceOf(\HH\Lib\Experimental\IO\_Private\PipeWriteHandle::class);
+    expect($read->rawReadBlocking())->toBeSame('{}');
   }
 
   public async function testShouldReturnJsonBody(): Awaitable<void> {
-    list($read, $write) = IO\pipe_non_disposable();
-    await $write->writeAsync(\json_encode(new ImmMap([
+    list($read, $write) = IO\pipe_nd();
+    await $write->writeAsync(\json_encode(new ImmMap(dict[
       'testing' => ImmMap{
         'HHVM' => 'Hack'
       }
@@ -34,7 +36,10 @@ final class HalResponseTest extends HackTest {
     expect($r->getHeaders())->toBeSame(dict[
       'content-type' => vec['application/hal+json; charset=utf-8'],
     ]);
-    await $r->getBody()->closeAsync();
+    $re = $r->getBody();
+    if($re is \HH\Lib\Experimental\IO\_Private\PipeWriteHandle) {
+      await $re->closeAsync();
+    }
     $re = await $read->readAsync();
     expect($re)->toBeSame('{"testing":{"HHVM":"Hack"}}');
   }
