@@ -14,6 +14,11 @@ return dict[
         'middleware' => vec[
           \App\Action\IndexAction::class,
         ],
+      ),
+      '/hal' => shape(
+        'middleware' => vec[
+          \App\Action\Hal\IndexAction::class,
+        ],
       )
     }
   ]

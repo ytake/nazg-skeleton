@@ -1,6 +1,6 @@
-namespace App\Action;
+namespace App\Action\Hal;
 
-use type IndexXhpResponder;
+use type App\Responder\Hal\IndexResponder;
 use type Nazg\Glue\Container;
 use type Nazg\Glue\ProviderInterface;
 
@@ -10,6 +10,6 @@ final class IndexActionProvider
   public function get(
     Container $_
   ): IndexAction {
-    return new IndexAction(new IndexXhpResponder());
+    return new IndexAction(new IndexResponder());
   }
 }

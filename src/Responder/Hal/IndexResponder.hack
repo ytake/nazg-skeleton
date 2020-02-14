@@ -1,7 +1,7 @@
-namespace App\Responder;
+namespace App\Responder\Hal;
 
 use type App\Http\HalResponse;
-use type HH\Lib\Experimental\IO\WriteHandle;
+use type HH\Lib\Experimental\IO\CloseableWriteHandle;
 use type Ytake\Hhypermedia\Serializer\HalJsonSerializer;
 use type Ytake\Hhypermedia\Visitor\JsonSerializationVisitor;
 use type Ytake\Hhypermedia\Link;
@@ -14,7 +14,7 @@ use type Facebook\Experimental\Http\Message\ResponseInterface;
 final class IndexResponder {
 
   public async function invokeAsync(
-    WriteHandle $writeHandle,
+    CloseableWriteHandle $writeHandle,
     dict<arraykey, mixed> $data = dict[]
   ): Awaitable<ResponseInterface> {
     $ro = new ResourceObject()

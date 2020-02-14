@@ -1,6 +1,6 @@
-use type App\Action\IndexAction;
+use type App\Action\Hal\IndexAction;
 use type App\Http\HalResponse;
-use type App\Responder\IndexResponder;
+use type App\Responder\Hal\IndexResponder;
 use type Facebook\HackTest\HackTest;
 use type Ytake\Hungrr\StatusCode;
 use type Ytake\Hungrr\ServerRequestFactory;
@@ -17,7 +17,7 @@ final class IndexActionTest extends HackTest {
   }
 
   public async function testShouldReturnResponse(): Awaitable<void> {
-    list($read, $write) = IO\pipe_non_disposable();
+    list($read, $write) = IO\pipe_nd();
     $action = new IndexAction(new IndexResponder());
     $process = await $action->processAsync(
       $write,

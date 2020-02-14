@@ -8,6 +8,9 @@ final class ActionProvider extends ConsistentServiceProvider {
   <<__Override>>
   public function apply(): void {
     $this->container
+      ->bind(Action\Hal\IndexAction::class)
+      ->provider(new Action\Hal\IndexActionProvider());
+    $this->container
       ->bind(Action\IndexAction::class)
       ->provider(new Action\IndexActionProvider());
   }

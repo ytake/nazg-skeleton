@@ -11,3 +11,4 @@ php --version
 )
 composer install
 hh_client
+./vendor/bin/hacktest.hack tests/
