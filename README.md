@@ -1,4 +1,5 @@
 # Nazg Framework Skeleton
+
 Nazg is a Action-Domain-Responder (ADR) Micro framework that helps you quickly write simple yet powerful web applications for HHVM/Hack.
 
 Begin developing HHVM/Hack Http Microframework Skeleton!
@@ -6,6 +7,10 @@ Begin developing HHVM/Hack Http Microframework Skeleton!
 [![Build Status](http://img.shields.io/travis/nazg-hack/framework/master.svg?style=flat-square)](https://travis-ci.org/nazg-hack/framework)
 [![Packagist](https://img.shields.io/packagist/dt/nazg/skeleton.svg?style=flat-square)](https://packagist.org/packages/nazg/skeleton)
 [![Packagist](https://img.shields.io/packagist/v/nazg/skeleton.svg?style=flat-square)](https://packagist.org/packages/nazg/skeleton)
+
+## Supported
+
+HHVM 4.41 and above.
 
 ## About Nazg
 
@@ -24,17 +29,19 @@ $ composer create-project nazg/skeleton nazg-app-sample --prefer-dist
 Execute the hh-autoload.hack script each time you add the class file.
 
 For Example  
+
 ```bash
 $ hhvm ./vendor/bin/hh-autoload.hack
 ```
 
-## Testing 
+## Testing
 
 ```bash
 $ hhvm ./vendor/bin/hacktest.hack tests/
 ```
 
 ## CLI Tools
+
 CLI Tools Provided by Default
 
 ### Cache Clear Command

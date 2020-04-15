@@ -1,5 +1,5 @@
 use type App\Http\HalResponse;
-use type HH\Lib\Experimental\IO\CloseableWriteHandle;
+use type HH\Lib\IO\CloseableWriteHandle;
 use type Ytake\Hungrr\Response\HtmlResponse;
 use type Facebook\Experimental\Http\Message\ResponseInterface;
 

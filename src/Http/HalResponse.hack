@@ -3,7 +3,7 @@ namespace App\Http;
 use type Ytake\Hungrr\Response\JsonResponse;
 use type Ytake\Hungrr\StatusCode;
 use type Ytake\Hungrr\Response\InjectContentTypeTrait;
-use namespace HH\Lib\Experimental\IO;
+use namespace HH\Lib\IO;
 
 final class HalResponse extends JsonResponse {
 

@@ -1,7 +1,7 @@
 namespace App\Responder\Hal;
 
 use type App\Http\HalResponse;
-use type HH\Lib\Experimental\IO\CloseableWriteHandle;
+use type HH\Lib\IO\CloseableWriteHandle;
 use type Ytake\Hhypermedia\Serializer\HalJsonSerializer;
 use type Ytake\Hhypermedia\Visitor\JsonSerializationVisitor;
 use type Ytake\Hhypermedia\Link;
