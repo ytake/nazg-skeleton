@@ -1,7 +1,7 @@
 use type App\Responder\Hal\IndexResponder;
 use type Facebook\HackTest\HackTest;
 use type Facebook\Experimental\Http\Message\ResponseInterface;
-use namespace HH\Lib\Experimental\IO;
+use namespace HH\Lib\IO;
 use function Facebook\FBExpect\expect;
 
 final class IndexResponderTest extends HackTest {

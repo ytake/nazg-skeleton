@@ -3,7 +3,7 @@ require_once __DIR__.'/../vendor/hh_autoload.hh';
 use type Nazg\Glue\ContainerBuilder;
 use namespace App\Config;
 use namespace Nazg\Foundation;
-use namespace HH\Lib\Experimental\IO;
+use namespace HH\Lib\IO;
 use namespace Ytake\HHConfigAggreagator;
 
 function bootApp(): Foundation\Application {

@@ -5,7 +5,7 @@ use type Facebook\HackTest\HackTest;
 use type Ytake\Hungrr\StatusCode;
 use type Ytake\Hungrr\ServerRequestFactory;
 use type Nazg\RequestHandler\AsyncFallbackHandler;
-use namespace HH\Lib\Experimental\IO;
+use namespace HH\Lib\IO;
 use function Facebook\FBExpect\expect;
 
 final class IndexActionTest extends HackTest {

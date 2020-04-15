@@ -1,6 +1,6 @@
 use type App\Http\HalResponse;
 use type Facebook\HackTest\HackTest;
-use namespace HH\Lib\Experimental\IO;
+use namespace HH\Lib\IO;
 use function Facebook\FBExpect\expect;
 
 final class HalResponseTest extends HackTest {
@@ -17,8 +17,6 @@ final class HalResponseTest extends HackTest {
     ]);
     await $write->closeAsync();
     $re = $r->getBody();
-    expect($re)
-      ->toBeInstanceOf(\HH\Lib\Experimental\IO\_Private\PipeWriteHandle::class);
     expect($read->rawReadBlocking())->toBeSame('{}');
   }
 
@@ -37,7 +35,7 @@ final class HalResponseTest extends HackTest {
       'content-type' => vec['application/hal+json; charset=utf-8'],
     ]);
     $re = $r->getBody();
-    if($re is \HH\Lib\Experimental\IO\_Private\PipeWriteHandle) {
+    if($re is \HH\Lib\_Private\_IO\PipeWriteHandle) {
       await $re->closeAsync();
     }
     $re = await $read->readAsync();
