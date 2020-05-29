@@ -1,8 +1,10 @@
-version: '3'
+version: '3.4'
 services:
-  hhvm:
+  hhvm-dev:
     build:
-      context: ./docker/hhvm
+      context: .
+      dockerfile: ./docker/hhvm/Dockerfile
+      target: dev
     volumes:
       - .:/var/www
       - ./docker/hhvm/hh.conf:/etc/hh.conf
@@ -30,5 +32,3 @@ services:
       NGINX_SERVER_NAME: "nazg.local"
     container_name: web-server
     tty: true
-    depends_on:
-      - "hhvm"

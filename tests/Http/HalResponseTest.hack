@@ -17,7 +17,7 @@ final class HalResponseTest extends HackTest {
     ]);
     await $write->closeAsync();
     $re = $r->getBody();
-    expect($read->rawReadBlocking())->toBeSame('{}');
+    expect(await $read->readAsync())->toBeSame('{}');
   }
 
   public async function testShouldReturnJsonBody(): Awaitable<void> {

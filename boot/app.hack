@@ -9,9 +9,9 @@ use namespace Ytake\HHConfigAggreagator;
 function bootApp(): Foundation\Application {
   $aggregator = new HHConfigAggreagator\ConfigAggreagator(
     vec[
-      new HHConfigAggreagator\PhpFileProvider(__DIR__.'/../config/{{,*.}global,{,*.}local}.php',)
+      new HHConfigAggreagator\HackFileProvider(__DIR__ . '/../config/{{,*.}global,{,*.}local}.{hackpartial}',)
     ],
-    __DIR__. '/../storages/cached.config.cache.php'
+    __DIR__ . '/../storages/cached.config.cache.hackpartial'
   );
   $config = $aggregator->getMergedConfig();
   $cacheConfig = $config['cache'];

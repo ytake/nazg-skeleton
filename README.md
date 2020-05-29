@@ -65,6 +65,7 @@ $ hhvm ./bin/container-cache-clear.hack
 Using [hhvm/hhvm-proxygen:latest](https://hub.docker.com/r/hhvm/hhvm-proxygen/tags) and [nginx:1.17-alpine](https://hub.docker.com/_/nginx/?tab=tags) Containers
 
 ```bash
+$ docker-compose build hhvm-dev web-server
 $ docker-compose up -d
 $ docker-compose exec hhvm /bin/bash -c 'cd /var/www && composer update'
 ```
