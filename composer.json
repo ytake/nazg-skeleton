@@ -21,14 +21,14 @@
     }
   ],
   "require": {
-    "hhvm": "^4.58",
+    "hhvm": "^4.62",
     "hhvm/hsl": "^4.25",
     "hhvm/hsl-experimental": "^4.50",
     "hhvm/hhvm-autoload": "^3.0",
-    "nazg/framework": "^0.11",
-    "ytake/hh-config-aggregator": "^0.9",
-    "ytake/hackdotenv": "^0.8",
-    "facebook/xhp-lib": "^3.1"
+    "nazg/framework": "^0.12",
+    "ytake/hh-config-aggregator": "^0.10",
+    "ytake/hackdotenv": "^0.9",
+    "facebook/xhp-lib": "^3.2"
   },
   "require-dev": {
     "hhvm/hacktest": "^2.0",

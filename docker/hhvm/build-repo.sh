@@ -4,7 +4,6 @@ set -e
 echo "** Building repository"
 set -x
 hhvm --hphp --target hhbc \
-  -l3 \
   --module src \
   --module vendor \
   --module build/final \
