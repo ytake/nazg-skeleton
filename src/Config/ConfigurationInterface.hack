@@ -1,7 +1,6 @@
 namespace App\Config;
 
-interface ConfigurationInterface {
-  abstract const type T;
+interface ConfigurationInterface<T> {
 
-  public function getConfiguration(): this::T;
+  public function getConfiguration(): T;
 }

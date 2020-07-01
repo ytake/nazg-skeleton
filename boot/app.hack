@@ -7,27 +7,16 @@ use namespace HH\Lib\IO;
 use namespace Ytake\HHConfigAggreagator;
 
 function bootApp(): Foundation\Application {
-  $aggregator = new HHConfigAggreagator\ConfigAggreagator(
-    vec[
-      new HHConfigAggreagator\HackFileProvider(__DIR__ . '/../config/{{,*.}global,{,*.}local}.{hackpartial}',)
-    ],
-    __DIR__ . '/../storages/cached.config.cache.hackpartial'
-  );
-  $config = $aggregator->getMergedConfig();
-  $cacheConfig = $config['cache'];
+
+  $cache = (new Config\Cache())->getConfiguration();
   $appConfig = new Config\ApplicationConfig();
-  /* HH_FIXME[4063] config dict access */
-  $appConfig->setMemcachedCacheConfig($cacheConfig['memcached']);
-  /* HH_FIXME[4063] config dict access */
-  $appConfig->setCacheDriver($cacheConfig['cache_driver']);
-  /* HH_FIXME[4063] config dict access */
-  $appConfig->setFilesystemCacheConfig($cacheConfig['file']);
-  /* HH_FIXME[4110] config dict access */
-  $appConfig->setRoutes($config['routes']);
-  /* HH_FIXME[4110] config dict access */
-  $appConfig->setServiceProviders($config['providers']);
-  /* HH_FIXME[4110] config dict access */
-  $appConfig->setLogConfig($config['logs']);
+  $appConfig->setMemcachedCacheConfig($cache['memcached']);
+  $appConfig->setCacheDriver($cache['cache_driver']);
+  $appConfig->setFilesystemCacheConfig($cache['file']);
+  $appConfig->setRoutes((new Config\Routes())->getConfiguration());
+  $appConfig->setServiceProviders((new Config\Provider())->getConfiguration());
+  $appConfig->setLogConfig((new Config\Log())->getConfiguration());
+
   list($read, $write) = IO\pipe_nd();
   $builder = new ContainerBuilder();
   return new Foundation\Application($builder->make(), $read, $write)

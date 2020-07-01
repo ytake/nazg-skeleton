@@ -23,6 +23,7 @@ type CacheType = shape(
 type ProvidersType = vec<classname<ConsistentServiceProvider>>;
 
 type RoutesType = dict<HTTPMethod, ImmMap<string, shape(
-    'middleware' => vec<classname<AsyncMiddlewareInterface>>,
-  'named' => string,
+  'middleware' => vec<classname<AsyncMiddlewareInterface>>,
 )>>;
+
+type LogType = shape('logfile' => string, 'logname' => string);
