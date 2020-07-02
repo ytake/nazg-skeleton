@@ -25,7 +25,7 @@
     "hhvm/hsl": "^4.25",
     "hhvm/hsl-experimental": "^4.50",
     "hhvm/hhvm-autoload": "^3.0",
-    "nazg/framework": "^0.12",
+    "nazg/framework": "^0.13",
     "ytake/hackdotenv": "^0.9",
     "facebook/xhp-lib": "^3.2"
   },

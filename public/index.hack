@@ -4,8 +4,7 @@ use type Ytake\Hungrr\ServerRequestFactory;
 use namespace HH\Lib\Experimental\IO;
 
 <<__EntryPoint>>
-function main(): void {
-  \HH\Asio\join(
-    bootApp()->runAsync(ServerRequestFactory::fromGlobals())
-  );
+async function mainAsync(): Awaitable<void> {
+   $app = await bootApp();
+   await $app->runAsync(ServerRequestFactory::fromGlobals());
 }

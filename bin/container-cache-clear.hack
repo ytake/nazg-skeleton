@@ -7,6 +7,6 @@ use type Nazg\Foundation\Command\ContainerCacheClear;
 
 <<__EntryPoint>>
 async function containerCacheClearMain(): Awaitable<void> {
-  ContainerCacheClear::setApplication(bootApp());
+  ContainerCacheClear::setApplication(await bootApp());
   await ContainerCacheClear::runAsync();
 }

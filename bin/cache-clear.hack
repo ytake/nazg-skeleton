@@ -7,6 +7,6 @@ use type Nazg\Foundation\Command\ApplicationCacheClear;
 
 <<__EntryPoint>>
 async function cacheClearMain(): Awaitable<void> {
-  ApplicationCacheClear::setApplication(bootApp());
+  ApplicationCacheClear::setApplication(await bootApp());
   await ApplicationCacheClear::runAsync();
 }

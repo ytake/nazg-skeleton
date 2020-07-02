@@ -6,16 +6,18 @@ use namespace Nazg\Foundation;
 use namespace HH\Lib\IO;
 use namespace Ytake\HHConfigAggreagator;
 
-function bootApp(): Foundation\Application {
+async function bootApp(): Awaitable<Foundation\Application> {
 
   $cache = (new Config\Cache())->getConfiguration();
   $appConfig = new Config\ApplicationConfig();
-  $appConfig->setMemcachedCacheConfig($cache['memcached']);
-  $appConfig->setCacheDriver($cache['cache_driver']);
-  $appConfig->setFilesystemCacheConfig($cache['file']);
-  $appConfig->setRoutes((new Config\Routes())->getConfiguration());
-  $appConfig->setServiceProviders((new Config\Provider())->getConfiguration());
-  $appConfig->setLogConfig((new Config\Log())->getConfiguration());
+  concurrent {
+    await $appConfig->setLogConfigAsync((new Config\Log())->getConfiguration());
+    await $appConfig->setRoutesAsync((new Config\Routes())->getConfiguration());
+    await $appConfig->setMemcachedCacheConfigAsync($cache['memcached']);
+    await $appConfig->setCacheDriverAsync($cache['cache_driver']);
+    await $appConfig->setFilesystemCacheConfigAsync($cache['file']);
+    await $appConfig->setServiceProvidersAsync((new Config\Provider())->getConfiguration());
+  }
 
   list($read, $write) = IO\pipe_nd();
   $builder = new ContainerBuilder();
