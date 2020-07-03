@@ -12,7 +12,7 @@ final class IndexXhpResponder {
     $html = <arrived />;
 		$ui = <component-link />;
     await $writeHandle->writeAsync($html->toString() . $ui->toString());
-    await $writeHandle->closeAsync();
+    $writeHandle->close();
     return new HtmlResponse($writeHandle);
   }
 }

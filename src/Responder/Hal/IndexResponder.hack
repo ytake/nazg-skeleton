@@ -29,7 +29,7 @@ final class IndexResponder {
       new JsonSerializationVisitor(\JSON_UNESCAPED_SLASHES)
     );
     await $writeHandle->writeAsync($serializer->serialize());
-    await $writeHandle->closeAsync();
+    $writeHandle->close();
     return new HalResponse($writeHandle);
   }
 }

@@ -17,7 +17,7 @@ final class IndexActionTest extends HackTest {
   }
 
   public async function testShouldReturnResponse(): Awaitable<void> {
-    list($read, $write) = IO\pipe_nd();
+    list($read, $write) = IO\pipe();
     $action = new IndexAction(new IndexResponder());
     $process = await $action->processAsync(
       $write,

@@ -19,7 +19,7 @@ async function bootApp(): Awaitable<Foundation\Application> {
     await $appConfig->setServiceProvidersAsync((new Config\Provider())->getConfiguration());
   }
 
-  list($read, $write) = IO\pipe_nd();
+  list($read, $write) = IO\pipe();
   $builder = new ContainerBuilder();
   return new Foundation\Application($builder->make(), $read, $write)
   |> $$->build($appConfig);

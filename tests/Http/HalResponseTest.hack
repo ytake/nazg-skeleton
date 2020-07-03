@@ -6,7 +6,7 @@ use function Facebook\FBExpect\expect;
 final class HalResponseTest extends HackTest {
 
   public async function testShouldReturnEmptyJsonBody(): Awaitable<void> {
-    list($read, $write) = IO\pipe_nd();
+    list($read, $write) = IO\pipe();
     $r = new HalResponse($write);
     await $write->writeAsync(\json_encode(dict[]));
     expect($r->getStatusCode())->toBeSame(200);
@@ -15,13 +15,13 @@ final class HalResponseTest extends HackTest {
     expect($r->getHeaders())->toBeSame(dict[
       'content-type' => vec['application/hal+json; charset=utf-8'],
     ]);
-    await $write->closeAsync();
+    $write->close();
     $re = $r->getBody();
     expect(await $read->readAsync())->toBeSame('{}');
   }
 
   public async function testShouldReturnJsonBody(): Awaitable<void> {
-    list($read, $write) = IO\pipe_nd();
+    list($read, $write) = IO\pipe();
     await $write->writeAsync(\json_encode(new ImmMap(dict[
       'testing' => ImmMap{
         'HHVM' => 'Hack'
@@ -36,7 +36,7 @@ final class HalResponseTest extends HackTest {
     ]);
     $re = $r->getBody();
     if($re is \HH\Lib\_Private\_IO\PipeWriteHandle) {
-      await $re->closeAsync();
+      $re->close();
     }
     $re = await $read->readAsync();
     expect($re)->toBeSame('{"testing":{"HHVM":"Hack"}}');

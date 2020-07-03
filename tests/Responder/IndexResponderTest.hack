@@ -8,14 +8,14 @@ final class IndexResponderTest extends HackTest {
 
   public async function testShouldReturnResponderInstance(): Awaitable<void> {
     $responder = new IndexResponder();
-    list($_, $write) = IO\pipe_nd();
+    list($_, $write) = IO\pipe();
     $response = await $responder->invokeAsync($write);
     expect($response)->toBeInstanceOf(ResponseInterface::class);
   }
 
   public async function testShouldReturnResponderInstance1(): Awaitable<void> {
     $responder = new IndexResponder();
-    list($read, $write) = IO\pipe_nd();
+    list($read, $write) = IO\pipe();
     $response = await $responder->invokeAsync($write);
     $body = await $read->readAsync();
     expect($body)
