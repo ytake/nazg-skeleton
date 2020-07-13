@@ -1,6 +1,6 @@
-namespace App\Action;
+namespace App\Action\Hal;
 
-use IndexXhpResponder;
+use type App\Responder\Hal\IndexResponder;
 use type HH\Lib\IO\CloseableWriteHandle;
 use type Facebook\Experimental\Http\Message\ResponseInterface;
 use type Facebook\Experimental\Http\Message\ServerRequestInterface;
@@ -10,7 +10,7 @@ use type Nazg\Http\Server\AsyncRequestHandlerInterface;
 final class IndexAction implements AsyncMiddlewareInterface {
 
   public function __construct(
-    private IndexXhpResponder $responder
+    private IndexResponder $responder
   ) {}
 
   public async function processAsync(
